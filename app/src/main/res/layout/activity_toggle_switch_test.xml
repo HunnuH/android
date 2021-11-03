@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ToggleSwitchTest">
+   
+    <ToggleButton
+        android:id="@+id/toggleBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="ToggleButton"
+        />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Switch" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+  
+
+    <TextView
+        android:id="@+id/ts_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="정보:"
+        android:lines="2"
+        />
+
+    <Button
+        android:id="@+id/ts_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="상태확인" />
+
+    <Button
+        android:id="@+id/ts_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="설정" />
+
+    <Button
+        android:id="@+id/ts_button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="해제" />
+
+    <Button
+        android:id="@+id/ts_button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle" />
+
+    <Button
+        android:id="@+id/switch_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스위치상태확인" />
+
+    <Button
+        android:id="@+id/switch_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스위치설정" />
+
+    <Button
+        android:id="@+id/switch_button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="스위치해제" />
+
+
+</LinearLayout>
