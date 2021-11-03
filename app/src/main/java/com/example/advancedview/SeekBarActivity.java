@@ -32,11 +32,11 @@ public class SeekBarActivity extends AppCompatActivity{
         btn3 = findViewById(R.id.seekBtn3);
         btn4 = findViewById(R.id.seekBtn4);
 
-        //리스너연결 - 이벤트연결(위젯이 이벤트에 반응할 수 있도록 연결)
+       /* //리스너연결 - 이벤트연결(위젯이 이벤트에 반응할 수 있도록 연결)
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
+        btn4.setOnClickListener(this);*/
 
        
     }

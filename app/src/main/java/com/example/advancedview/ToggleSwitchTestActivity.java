@@ -32,7 +32,7 @@ public class ToggleSwitchTestActivity extends AppCompatActivity {
         switch1 = findViewById(R.id.switch1);
         switch2 = findViewById(R.id.switch2);
         switch3 = findViewById(R.id.switch3);
-        switchCompat01 = findViewById(R.id.switchCompat01);
+       // switchCompat01 = findViewById(R.id.switchCompat01);
         ts_button1 = findViewById(R.id.ts_button1);
         ts_button2 = findViewById(R.id.ts_button2);
         ts_button3 = findViewById(R.id.ts_button3);

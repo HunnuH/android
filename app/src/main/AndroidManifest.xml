@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdvancedView">
-        <activity android:name=".CheckBoxActivity">
+
+        <activity android:name=".CheckBoxActivity" />
+        <activity android:name=".ToggleSwitchTestActivity" />
+        <activity android:name=".SeekBarActivity" />
+        <activity android:name=".ProgressBarActivity" />
+        <activity android:name=".RadioActivity"/>
+        <activity android:name=".ViewTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

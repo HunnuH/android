@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import exam.day03.view.selectview.R;
 
 public class RadioActivity extends AppCompatActivity {
     // 뷰의 주소값을 담을 참조변수
@@ -29,9 +28,43 @@ public class RadioActivity extends AppCompatActivity {
         text1 = (TextView)findViewById(R.id.textView);
         text2 = (TextView)findViewById(R.id.textView2);
 
-     
+        RadioListener listener = new RadioListener();
+        group1.setOnCheckedChangeListener(listener);
+        group2.setOnCheckedChangeListener(listener);
     }
-   
+    public void  radioCheck(View v) {
+        radio3.setChecked(true);
+        radio4.setChecked(true);
+    }
+    public void getCheckStatus(View v) {
+      int id1 = group1.getCheckedRadioButtonId();
+      int id2 = group2.getCheckedRadioButtonId()    ;
+        text1.setText(id1+"라디오선택");
+        text2.setText(id2+"라디오선택");
+
+    }
+}
+
+   class  RadioListener implements RadioGroup.OnCheckedChangeListener {
+
+       @Override
+       public void onCheckedChanged(RadioGroup group, int checkedId) {
+           Log.d("yyy",group.getId()+"::::::::::::::"+checkedId);
+           switch (group.getId()) {
+               case  R.id.group1:
+                    switch (checkedId) {
+                        case R.id.radioButton1:
+                            Log.d("Y","1-1-1 start");
+                    }
+                    break;
+               case  R.id.group2:
+                   switch (checkedId) {
+                       case R.id.radioButton2:
+                           Log.d("Y","2-2-1 start");
+           }
+                    break;
+       }
+   }
 }
 
 
