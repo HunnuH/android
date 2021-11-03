@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ToggleSwitchTest">
+    android:orientation="vertical">
    
     <ToggleButton
         android:id="@+id/toggleBtn"
@@ -13,18 +12,26 @@
         android:layout_height="wrap_content"
         android:checked="true"
         android:text="ToggleButton"
+        android:textOn="설정"
+        android:textOff="설정해제"
         />
 
     <Switch
         android:id="@+id/switch2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Switch" />
+        android:text="data ues"
+        android:textOn="설정"
+        android:textOff="해제"/>
 
     <Switch
         android:id="@+id/switch3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="wifi use"
+        android:track="@drawable/switch_track_image"
+        android:thumb="@drawable/switch_thunb_image"/>
 
   
 
