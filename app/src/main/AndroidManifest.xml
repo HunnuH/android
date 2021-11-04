@@ -10,7 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdvancedView">
 
-        <activity android:name=".LifrCycleActivity">
+        <activity android:name=".LifrCycleActivity" />
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".ExamSecondActivity" />
+        <activity android:name=".ReturnDataSecondActivity" />
+        <activity android:name=".ReturnDataFirstActivity" />
+        <activity android:name=".ExamFirstActivity" />
+        <activity android:name=".ReturnDataFirstActivity_Callback" />
+        <activity android:name=".ExamFirstActivity_Callback"/>
+        <activity android:name=".BasicAppRun"/>
+        <activity android:name=".UseOtherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,5 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 </manifest>
