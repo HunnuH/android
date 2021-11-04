@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.advancedview">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdvancedView">
+        <activity android:name=".Salse_page_Activity"></activity>
+        <activity android:name=".Product_page_Activity" />
+        <activity android:name=".Client_page_Activity" />
+        <activity android:name=".Main_menuActivity" />
 
         <activity android:name=".LifrCycleActivity" />
         <activity android:name=".SecondActivity" />
@@ -17,9 +23,10 @@
         <activity android:name=".ReturnDataFirstActivity" />
         <activity android:name=".ExamFirstActivity" />
         <activity android:name=".ReturnDataFirstActivity_Callback" />
-        <activity android:name=".ExamFirstActivity_Callback"/>
-        <activity android:name=".BasicAppRun"/>
-        <activity android:name=".UseOtherActivity">
+        <activity android:name=".ExamFirstActivity_Callback" />
+        <activity android:name=".BasicAppRun" />
+        <activity android:name=".UseOtherActivity"/>
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,5 +34,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 </manifest>
