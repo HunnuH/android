@@ -1,8 +1,10 @@
-package com.example.advancedview;
+package com.example.advancedview.task;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.advancedview.R;
 
 public class Client_page_Activity extends AppCompatActivity {
 

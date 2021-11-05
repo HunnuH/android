@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.advancedview">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -11,22 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdvancedView">
-        <activity android:name=".Salse_page_Activity"></activity>
-        <activity android:name=".Product_page_Activity" />
-        <activity android:name=".Client_page_Activity" />
-        <activity android:name=".Main_menuActivity" />
 
-        <activity android:name=".LifrCycleActivity" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".ExamSecondActivity" />
-        <activity android:name=".ReturnDataSecondActivity" />
-        <activity android:name=".ReturnDataFirstActivity" />
-        <activity android:name=".ExamFirstActivity" />
-        <activity android:name=".ReturnDataFirstActivity_Callback" />
-        <activity android:name=".ExamFirstActivity_Callback" />
-        <activity android:name=".BasicAppRun" />
-        <activity android:name=".UseOtherActivity"/>
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".sqllite.DBMainActivity" />
+        <activity android:name=".task.Main_menuActivity" />
+        <activity android:name=".task.LoginActivity" />
+        <activity android:name=".sqllite.ListViewActivity" />
+        <activity android:name=".sqllite.ResourceDataListActivity" />
+        <activity android:name=".sqllite.SimpleAdapterTestActivity" />
+        <activity android:name=".sqllite.SpinnerAdapterTestActivity"/>
+        <activity android:name=".exam.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.advancedview;
+package com.example.advancedview.intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import com.example.advancedview.R;
 
 public class ExamSecondActivity extends AppCompatActivity {
     Button ok;

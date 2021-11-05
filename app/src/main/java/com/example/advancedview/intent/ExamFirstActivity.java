@@ -1,6 +1,5 @@
-package com.example.advancedview;
+package com.example.advancedview.intent;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,13 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.advancedview.R;
+
 public class ExamFirstActivity extends AppCompatActivity {
     EditText name;
     EditText tel;
     Button btn;
     Button btn2;
     TextView result;
-    public  static  final int INPUT_DATA_RESULT_TEST = 1;
+    public static final int INPUT_DATA_RESULT_TEST = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

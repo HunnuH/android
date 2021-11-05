@@ -1,4 +1,4 @@
-package com.example.advancedview;
+package com.example.advancedview.intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.advancedview.R;
 
 public class FirstActivity extends AppCompatActivity {
     // 버튼을 누르면 SecondActivity가 실행되도록

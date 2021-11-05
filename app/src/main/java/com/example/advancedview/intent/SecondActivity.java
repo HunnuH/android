@@ -1,4 +1,4 @@
-package com.example.advancedview;
+package com.example.advancedview.intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.advancedview.R;
 
 public class SecondActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.advancedview;
+package com.example.advancedview.intent;
 
 
 
@@ -16,6 +16,9 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.advancedview.R;
+
 // intent를 이용하는 작업 중 결과를 가지고 처음 호출해준 액티비티로 가지고 돌아오는 작업은 startActivityForResult를 사용
 // 2020년 5월 기준으로 변경
 // registerForActivityResult메소드를 이용해서 콜백을 등룍해서 작업하는 방식으로 변경

@@ -1,4 +1,4 @@
-package com.example.advancedview;
+package com.example.advancedview.intent;
 
 
 import android.app.Activity;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.advancedview.R;
 
 public class ReturnDataSecondActivity extends AppCompatActivity {
 	String code;
