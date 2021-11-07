@@ -25,7 +25,6 @@ import com.example.advancedview.task.Main_menuActivity;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 public class MainActivity extends AppCompatActivity {
     EditText product;
     EditText price;
@@ -38,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ExamDBHelper examDBHelper;
     SQLiteDatabase examdb;
     ArrayList<HashMap<String, String>> ArrayList = new ArrayList<HashMap<String, String>>();
-    public static  final int INPUT_DATA =1;
-    ActivityResultLauncher<Intent> readLauncher;
-
+    ArrayList<HashMap<String, String>> searchList = new ArrayList<HashMap<String, String>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,18 +55,7 @@ public class MainActivity extends AppCompatActivity {
         examdb = examDBHelper.getWritableDatabase();
         myListner listner = new myListner();
         list.setOnItemClickListener(listner);
-
     }
-    class myListner implements AdapterView.OnItemClickListener{
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(MainActivity.this, ReadActivity.class);
-            intent.putExtra("name", product.getText().toString());
-            intent.putExtra("price", price.getText().toString());
-            startActivity(intent);
-        }
-    }
-
 
     public void insert(View v) {
         String sql = "insert into product(name,price,su,totPrice) values(?,?,?,?)";
@@ -121,33 +107,43 @@ public class MainActivity extends AppCompatActivity {
            datalist[i] = name + price;
            i++;
         }
-        SimpleAdapter adapter = new SimpleAdapter(this, ArrayList, android.R.layout.simple_list_item_2, new String[]{"product","price"}, new int[]{android.R.id.text1, android.R.id.text2});
+        SimpleAdapter adapter = new SimpleAdapter(this, ArrayList, android.R.layout.simple_list_item_2,
+                new String[]{"product","price"}, new int[]{android.R.id.text1, android.R.id.text2});
         list.setAdapter(adapter);
     }
 
-        public void search (View v){
-            String sql = "select * from product where name = ?";
-            list.setAdapter(list.getAdapter());
-            Cursor cursor = examdb.rawQuery(sql, new String[]{product.getText().toString()});
-            int count = cursor.getCount();
-            String[] data = new String[count];
-            int i =0;
-            while (cursor.moveToNext()) {
-                HashMap<String,String> item = new HashMap<>();
-                String name = cursor.getString(1);
-                item.put("product",name);
-                int price = cursor.getInt(2);
-                item.put("price", price+"");
-                ArrayList.add(item);
-                data[i] = name + price;
-
-            }
-            SimpleAdapter adapter = new SimpleAdapter(this, ArrayList, android.R.layout.simple_list_item_2, new String[]{"product","price"}, new int[]{android.R.id.text1, android.R.id.text2});
-            list.setAdapter(adapter);
+    public void search (View v){
+        String sql = "select * from product where name = ?";
+        list.setAdapter(list.getAdapter());
+        Cursor cursor = examdb.rawQuery(sql, new String[]{product.getText().toString()});
+        int count = cursor.getCount();
+        String[] data = new String[count];
+        int i =0;
+        while (cursor.moveToNext()) {
+            HashMap<String,String> item = new HashMap<>();
+            String name = cursor.getString(1);
+            item.put("product",name);
+            int price = cursor.getInt(2);
+            item.put("price", price+"");
+            searchList.add(item);
+            data[i] = name + price;
         }
+        SimpleAdapter adapter = new SimpleAdapter(this, searchList, android.R.layout.simple_list_item_2,
+                new String[]{"product","price"}, new int[]{android.R.id.text1, android.R.id.text2});
+        list.setAdapter(adapter);
+    }
 
-        public void showToast (String msg){
-            Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    class myListner implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(MainActivity.this, ReadActivity.class);
+            intent.putExtra("name", product.getText().toString());
+            intent.putExtra("price", price.getText().toString());
+            startActivity(intent);
         }
+    }
 
+    public void showToast (String msg){
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
 }
