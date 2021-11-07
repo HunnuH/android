@@ -16,7 +16,8 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:text="고객 관리"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/sales_btn"
@@ -25,7 +26,8 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:text="매출 관리"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:onClick="onClick"/>
 
     <Button
         android:id="@+id/product_btn"
@@ -34,6 +36,7 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:text="상품관리"
-        android:textSize="30dp"/>
+        android:textSize="30dp"
+        android:onClick="onClick"/>
 
 </LinearLayout>

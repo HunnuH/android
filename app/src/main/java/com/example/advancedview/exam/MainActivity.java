@@ -1,11 +1,15 @@
 package com.example.advancedview.exam;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.advancedview.R;
+import com.example.advancedview.sqllite.ResourceDataListActivity;
+import com.example.advancedview.task.Main_menuActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
     ExamDBHelper examDBHelper;
     SQLiteDatabase examdb;
     ArrayList<HashMap<String, String>> ArrayList = new ArrayList<HashMap<String, String>>();
-
+    public static  final int INPUT_DATA =1;
+    ActivityResultLauncher<Intent> readLauncher;
 
 
     @Override
@@ -49,9 +56,20 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.list);
         examDBHelper = new ExamDBHelper(this);
         examdb = examDBHelper.getWritableDatabase();
-
+        myListner listner = new myListner();
+        list.setOnItemClickListener(listner);
 
     }
+    class myListner implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(MainActivity.this, ReadActivity.class);
+            intent.putExtra("name", product.getText().toString());
+            intent.putExtra("price", price.getText().toString());
+            startActivity(intent);
+        }
+    }
+
 
     public void insert(View v) {
         String sql = "insert into product(name,price,su,totPrice) values(?,?,?,?)";
@@ -78,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             int _id = cursor.getInt(0);
             String name = cursor.getString(1);
             int price = cursor.getInt(2);
-            datalist[i] = _id + name + price;
+            datalist[i] = _id+".  "+name+"  "+ price;
             i++;
             }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, datalist);
@@ -109,17 +127,25 @@ public class MainActivity extends AppCompatActivity {
 
         public void search (View v){
             String sql = "select * from product where name = ?";
+            list.setAdapter(list.getAdapter());
             Cursor cursor = examdb.rawQuery(sql, new String[]{product.getText().toString()});
+            int count = cursor.getCount();
+            String[] data = new String[count];
+            int i =0;
             while (cursor.moveToNext()) {
-                int idx = cursor.getInt(0);
-                String product = cursor.getString(1);
-                int price = cursor.getInt(1);
-                int EA = cursor.getInt(3);
-                result1.append(idx + product + price);
+                HashMap<String,String> item = new HashMap<>();
+                String name = cursor.getString(1);
+                item.put("product",name);
+                int price = cursor.getInt(2);
+                item.put("price", price+"");
+                ArrayList.add(item);
+                data[i] = name + price;
 
             }
-
+            SimpleAdapter adapter = new SimpleAdapter(this, ArrayList, android.R.layout.simple_list_item_2, new String[]{"product","price"}, new int[]{android.R.id.text1, android.R.id.text2});
+            list.setAdapter(adapter);
         }
+
         public void showToast (String msg){
             Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
         }

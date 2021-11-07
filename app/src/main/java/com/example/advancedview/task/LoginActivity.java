@@ -28,11 +28,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, Main_menuActivity.class);
-                intent.putExtra("ID",id.getText().toString());
+               intent.putExtra("ID",id.getText().toString());
                 intent.putExtra("PASS",pass.getText().toString());
                 startActivityForResult(intent, INPUT_DATA_RESULT_TEST);
-                //String returndata = intent.getStringExtra("입력해주세요");
-                //Toast.makeText(LoginActivity.this,returndata, Toast.LENGTH_LONG ).show();
+                /* String returndata = intent.getStringExtra("입력해주세요");
+                Toast.makeText(LoginActivity.this,returndata, Toast.LENGTH_LONG ).show();*/
             }
         });
     }
@@ -41,10 +41,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == INPUT_DATA_RESULT_TEST) {
-            if (resultCode==RESULT_OK) {
+            if (data != null) {
                 String menu = data.getStringExtra("menu");
                 String message = data.getStringExtra("message");
-
                 Toast.makeText(getBaseContext(), "result code : " + resultCode + ", menu : " + menu + ", message : " + message, Toast.LENGTH_LONG).show();
             }
         }
