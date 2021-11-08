@@ -28,8 +28,9 @@
         <activity android:name=".exam.MainActivity" />
         <activity android:name=".thread.MainActivity" />
         <activity android:name=".thread.HandelerExamActivity01" />
-        <activity android:name=".thread.HandlerExamActivity02"/>
-        <activity android:name=".thread.HandlerPostActivity">
+        <activity android:name=".thread.HandlerExamActivity02" />
+        <activity android:name=".thread.HandlerPostActivity"/>
+        <activity android:name=".thread.Logo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
