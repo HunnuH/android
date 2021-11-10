@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.advancedview" >
+    package="com.example.advancedview">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
@@ -11,10 +11,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AdvancedView" >
-        <activity
-            android:name=".exam.ReadActivity"
-            android:exported="false" />
+        android:theme="@style/Theme.AdvancedView">
+
         <activity android:name=".sqllite.DBMainActivity" />
         <activity android:name=".task.Main_menuActivity" />
         <activity android:name=".task.Client_page_Activity" />
@@ -25,10 +23,14 @@
         <activity android:name=".sqllite.SimpleAdapterTestActivity" />
         <activity android:name=".sqllite.SpinnerAdapterTestActivity" />
         <activity android:name=".task.LoginActivity" />
-
-        <activity android:name=".intent.ExamSecondActivity"/>
-        <activity android:name=".intent.ExamFirstActivity_Callback"/>
-        <activity android:name=".exam.MainActivity">
+        <activity android:name=".intent.ExamSecondActivity" />
+        <activity android:name=".intent.ExamFirstActivity_Callback" />
+        <activity android:name=".exam.MainActivity" />
+        <activity android:name=".thread.MainActivity" />
+        <activity android:name=".thread.HandelerExamActivity01" />
+        <activity android:name=".thread.HandlerExamActivity02" />
+        <activity android:name=".thread.HandlerPostActivity"/>
+        <activity android:name=".thread.Logo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
