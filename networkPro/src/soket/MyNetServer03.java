@@ -37,7 +37,7 @@ public class MyNetServer03 {
 			
 			
 			String data = dis.readUTF();
-			System.out.println("client message : "+data);
+			System.out.println("Â¦¼ö/È¦¼ö : "+data);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

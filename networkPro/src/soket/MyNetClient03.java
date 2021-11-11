@@ -25,9 +25,9 @@ public class MyNetClient03 {
 			dos = new DataOutputStream(soketOut);
 			String data = dis.readUTF();
 			
-			System.out.println("server sending message1 - "+data);
+			System.out.println("server message - "+data);
 			int intdata = dis.readInt();
-			System.out.println("server sending message2 - "+intdata);
+			System.out.println("구구단  - "+intdata+" 단");
 			 int m = 1;
 		     int n = intdata;
 		      while(m<10){
