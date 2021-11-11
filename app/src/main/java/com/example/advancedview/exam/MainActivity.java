@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     SQLiteDatabase examdb;
     ArrayList<HashMap<String, String>> ArrayList = new ArrayList<HashMap<String, String>>();
     ArrayList<HashMap<String, String>> searchList = new ArrayList<HashMap<String, String>>();
+    public static final int INPUT_DATA_RESULT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.list);
         examDBHelper = new ExamDBHelper(this);
         examdb = examDBHelper.getWritableDatabase();
-        myListner listner = new myListner();
-        list.setOnItemClickListener(listner);
+
     }
 
     public void insert(View v) {
@@ -87,7 +87,15 @@ public class MainActivity extends AppCompatActivity {
             }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, datalist);
         list.setAdapter(adapter);
-        }
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, ReadActivity.class);
+                intent.putExtra("name", datalist[position]);
+                startActivityForResult(intent, INPUT_DATA_RESULT);
+            }
+        });
+    }
 
     public void simpleselect(View v) {
         list.setAdapter(list.getAdapter());
@@ -128,19 +136,10 @@ public class MainActivity extends AppCompatActivity {
             searchList.add(item);
             data[i] = name + price;
         }
+
         SimpleAdapter adapter = new SimpleAdapter(this, searchList, android.R.layout.simple_list_item_2,
                 new String[]{"product","price"}, new int[]{android.R.id.text1, android.R.id.text2});
         list.setAdapter(adapter);
-    }
-
-    class myListner implements AdapterView.OnItemClickListener{
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Intent intent = new Intent(MainActivity.this, ReadActivity.class);
-            intent.putExtra("name", product.getText().toString());
-            intent.putExtra("price", price.getText().toString());
-            startActivity(intent);
-        }
     }
 
     public void showToast (String msg){

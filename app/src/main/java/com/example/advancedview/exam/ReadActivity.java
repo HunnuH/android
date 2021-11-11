@@ -17,8 +17,7 @@ TextView read;
         read = findViewById(R.id.readtxt);
         Intent intent =getIntent();
         String product = intent.getStringExtra("name");
-        String price = intent.getStringExtra("price");
-        read.setText(product+price);
+        read.setText(product);
 
     }
 }
