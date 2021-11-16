@@ -1,4 +1,4 @@
-package android.control;
+package androidtcp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,15 +14,13 @@ public class ReceiverThread extends Thread{
 	SerialArduinoLEDControl serialobj;//시리얼 통신
 	OutputStream serialout;//시리얼통신에서 아두이노로 데이터를 내보내기
 	
-	public ReceiverThread(Socket client) {
+	public ReceiverThread(Socket client, OutputStream serialout) {
 		super();
 		this.client = client;
+		this.serialout = serialout;
 		try {
 			clientin = new BufferedReader(new InputStreamReader(this.client.getInputStream()));
 			clientout = new PrintWriter(this.client.getOutputStream(),true);
-			serialobj = new SerialArduinoLEDControl();
-			serialobj.connect("COM5");
-			serialout = serialobj.getOutput();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -34,16 +32,10 @@ public class ReceiverThread extends Thread{
 			try {
 				String msg = clientin.readLine();
 				System.out.println("클라이언트가 보낸 메세지 : "+msg);
-				if(msg.equals("led_1")) {
-					serialout.write('1');
-				}else if(msg.equals("led_2")) {
-					serialout.write('2');
-				}else if(msg.equals("led_3")){
-					serialout.write('3');
-				}else if(msg.equals("led_4")) {
-					serialout.write('4');
-				}else if(msg.equals("led_5")) {
-					serialout.write('5');
+				if(msg.equals("led_on")) {
+					serialout.write('o');
+				}else if(msg.equals("led_off")) {
+					serialout.write('f');
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
